@@ -19,6 +19,9 @@ jobs:
       - name: "Validate composer.json and composer.lock"
         run: php7.3 $(which composer) validate --strict
 
+      - name: "Calculate hash for composer.json"
+        run: hashFiles('composer.json')
+
       - name: "Install locked dependencies with composer"
         run: php7.3 $(which composer) install
 
